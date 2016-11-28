@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Отчет о посещении</title>
+    <!--link rel="stylesheet" type="text/css" href="./templates/datepicker.css" /> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/datepicker.css') }}" />
+    <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon" />
+
+<script type="text/javascript" src="../static/datepicker.js"></script>
+<script type="text/javascript" src="../static/timepicker.js"></script>
+<style>
+     /*   table, th, td {
+        border: 2px solid darkgreen;
+        border-collapse: collapse;} */
+body {
+    background-color: #88bd0f;
+}
+
+th, td {
+        padding: 15px;}
+    p {color: #ce1c21
+    }
+
+    input[type=text], select {
+    width: 49%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+input[type=submit] {
+    width: 70%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    width: 70%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin: 30px;
+}
+h1{
+    width: 70%;
+    color: darkgreen;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 30px;
+    }
+tr:hover{background-color: #e3f5d5
+}
+    </style>
+</head>
+<body style="font-family: Arial">
+<h1>Отчет о посещении подразделения по вопросам миграции МВД РФ</h1>
+<div>
+<form>
+    <p>Дата и время посещения подразделения:</p>
+    <input id="start_dt" class='datepicker' size='11' name='Date' title='D-MMM-YYYY' />
+    <input id="start_tm" class='timepicker' size='5' name="Time" title='HH:MM' />
+    <p></p>
+    <p>Состав группы посещения:</p>
+    <input type="text" name="FIO1" size="20" /> Фамилия, Имя, Отчество<br>
+    <input type="text" name="Phone" size="20" /> Телефон<br>
+    <input type="text" name="FIO2" size="20" /> Фамилия, Имя, Отчество<br>
+    <input type="text" name="FIO3" size="20" /> Фамилия, Имя, Отчество<br>
+    <p>Посещенное учреждение:</p>
+    <input type="text" name="OrgAddr" size="20" /> Адрес учреждения<br>
+    <input type="text" name="OrgName" size="20" /> Наименование учреждения<br>
+    <p></p>
+<table style="width:80%">
+    <tr>
+    <td><strong>1</strong></td>
+    <td>Удалось ли найти информацию о подразделении в сети интернет? Какую?</br>
+        (укажите в комментариях: адрес, контакты руководящих органов,режим работы, прочее)</td>
+    <td><input type="radio" name="Q1" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q1" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>2</strong></td>
+    <td>Легко ли найти учреждение?</td>
+    <td><input type="radio" name="Q2" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q2" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>3</strong></td>
+    <td>Есть ли указатели на пути к учреждению?</td>
+    <td><input type="radio" name="Q3" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q3" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>4</strong></td>
+    <td>Есть ли табличка на входе в учреждение?</td>
+    <td><input type="radio" name="Q4" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q4" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>5</strong></td>
+    <td>Можно ли свободно зайти на прилегающую территорию учреждения?</td>
+    <td><input type="radio" name="Q5" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q5" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>6</strong></td>
+    <td>Пропустили ли Вас в учреждение?</td>
+    <td><input type="radio" name="Q6" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q6" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>7</strong></td>
+    <td>Есть ли пандус на входе и пандусы на </br>
+        внутренних лестницах в части учреждения, доступной для граждан?</td>
+    <td><input type="radio" name="Q7" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q7" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+        <tr>
+        <td><strong>8</strong></td>
+    <td>Просят ли сотрудники подразделения предъявить паспорт? <br>
+        (основание для требования документов запишите в комментарии)</td>
+    <td><input type="radio" name="Q8" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q8" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>9</strong></td>
+    <td>Можно ли предъявить другие документы, удостоверяющие личность вместо паспорта?</td>
+    <td><input type="radio" name="Q9" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q9" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>10</strong></td>
+    <td>Осуществляется ли досмотр вещей / проверка металлодетектором на входе </br>
+        (основание для досмотра запишите в комментарии)</td>
+    <td><input type="radio" name="Q10" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q10" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>11</strong></td>
+    <td>Имеются ли информационные стенды?</td>
+    <td><input type="radio" name="Q11" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q11" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>12</strong></td>
+    <td>Можно ли сфотографировать стенды </br>
+        (если у Вас нет технической возможности сфотографировать стенд, оставьте графу незаполненной).</td>
+    <td><input type="radio" name="Q12" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q12" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>13</strong></td>
+    <td>Хорошо ли читается текст информационного стенда?</td>
+    <td><input type="radio" name="Q13" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q13" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>14</strong></td>
+    <td>Есть ли информации о том, куда обжаловать незаконные действия сотрудников данного учреждения?</br>
+        (например, образец для подачи заявления в прокуратуру, координаты службы собственной безопасности, </br>
+        Уполномоченного по правам человека, ОНК, суд)</td>
+    <td><input type="radio" name="Q14" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q14" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>15</strong></td>
+    <td>Размещена ли информация о мерах, принимаемых для устранения коррупции </br>
+        и контакты для сообщения о фактах коррупции?</td>
+    <td><input type="radio" name="Q15" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q15" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>16</strong></td>
+    <td>Порядок приёма обращений?</td>
+    <td><input type="radio" name="Q16" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q16" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>17</strong></td>
+    <td>График приема руководством учреждения?</td>
+    <td><input type="radio" name="Q17" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q17" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>18</strong></td>
+    <td>Доступны ли в подразделении туалеты для посетителей?</td>
+    <td><input type="radio" name="Q18" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q18" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>19</strong></td>
+    <td>Есть туалеты для инвалидов?</td>
+    <td><input type="radio" name="Q19" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q19" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>20</strong></td>
+    <td>Есть ли доступ к питьевой воде для посетителей?</td>
+    <td><input type="radio" name="Q20" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q20" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>21</strong></td>
+    <td>Вежливое ли обращение сотрудников к проверяющим?</td>
+    <td><input type="radio" name="Q21" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q21" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>22</strong></td>
+    <td>График приема передач (написать в комментариях какой?)</td>
+    <td><input type="radio" name="Q22" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q22" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>23</strong></td>
+    <td>График свиданий (написать в комментариях какой?)</td>
+    <td><input type="radio" name="Q23" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q23" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>24</strong></td>
+    <td>Разрешены ли свидания не только родственникам, но и другим лицам?</td>
+    <td><input type="radio" name="Q24" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q24" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>25</strong></td>
+    <td>Имеется ли в подразделении специалисты-сурдопереводчики </br>
+        или тифлосурдопереводчики либо сотрудники, имеющие аналогичные базовые навыки</td>
+    <td><input type="radio" name="Q25" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q25" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+    <tr>
+        <td><strong>26</strong></td>
+    <td>Имеется ли в учреждении юридическая литература (опишите в комментариях какая)</td>
+    <td><input type="radio" name="Q26" value = "yes"  /> <strong>Да</strong><br></td>
+    <td><input type="radio" name="Q26" value = "no" checked="checked"/> <strong>Нет</strong><br></td>
+    </tr>
+</table>
+    <p></p>
+    <h3 style="color: darkgreen">Отзывы граждан о подразделении</h3>
+    <p>Можно получить как при непосредственном контакте в подразделении,</br>
+        так и в масс-медиа, социальных сетях – в этом случае надо сделать ссылку</p>
+    <p><textarea name="reviews" cols="80" rows="6"></textarea></p>
+    <h3 style="color: darkgreen">Сколько времени граждане ожидают приема в среднем?</h3>
+    <p><textarea name="wait" cols="80" rows="6"></textarea></p>
+    <p></p>
+    <h3 style="color: darkgreen">Как граждане оценивают вежливость </br>и компетентность сотрудников?</h3>
+    <p><textarea name="competence" cols="80" rows="6"></textarea></p>
+    <p></p>
+    <h3 style="color: darkgreen">Вопросы сотрудникам об их проблемах</h3>
+    <p>Что необходимо для повышения эффективности работы?</p>
+    <p><textarea name="problems" cols="80" rows="6"></textarea></p>
+    <p></p>
+    <h3 style="color: darkgreen">Комментарии</h3>
+    <p><textarea name="comments" cols="80" rows="6"></textarea></p>
+    <p></p>
+<input type="submit" value="Сохранить ответы"></br>
+
+</form>
+    </div>
+</body>
+</html>

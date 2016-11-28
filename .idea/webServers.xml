@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ec61959b-74fe-4dc1-8cc8-d205b3d3ea5d" name="Police" url="http://police.mosyabloko.ru">
+        <fileTransfer host="police.mosyabloko.ru" port="22" privateKey="$USER_HOME$/.ssh/.drupal-new/id_rsa" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

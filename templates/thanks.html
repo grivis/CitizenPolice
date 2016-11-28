@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Спасибо!</title>
+    <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon" />
+<style>
+
+body {
+    background-color: #88bd0f;
+    background-image: url("../static/police-officer.png");
+    background-repeat: no-repeat;
+    background-position:left top;
+}
+h1{
+    width: 50%;
+    color: darkgreen;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    margin-left: 280px;
+}
+div {
+    width: 50%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    margin-left: 280px;
+
+}
+</style>
+</head>
+<body style="font-family: Arial">
+<h1 >Благодарим за заполнение анкеты!</h1>
+<div>
+<p id="demo"></p>
+<p>Введенная Вами информация успешно сохранена в базе данных</br>
+    и будет использована при составлении статистических отчетов.</p>
+</div>
+
+<div>
+    <p>Общественный контроль за работой органов исполнительной власти</br>
+    чрезвычайно важен для формирования современного гражданского общества.</p>
+    <p><strong>Мы признательны Вам за проведенную работу!</strong></p>
+</div>
+<script type="text/javascript">
+	var currentDate = new Date(),
+      day = currentDate.getDate(),
+      month = currentDate.getMonth() + 1,
+      year = currentDate.getFullYear();
+
+    var currentTime = new Date(),
+      hours = currentTime.getHours(),
+      minutes = currentTime.getMinutes();
+
+	if (minutes < 10) {
+	 minutes = "0" + minutes;
+  }
+
+    document.getElementById("demo").innerHTML = '<strong>'+
+            day + "/" + month + "/" + year + '  ' + hours + ":" + minutes + '</strong>';
+</script>
+</body>
+</html>
