@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Отчет о посещении</title>
     <!--link rel="stylesheet" type="text/css" href="./templates/datepicker.css" /> -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/datepicker.css') }}" />
@@ -24,6 +25,17 @@ th, td {
 
     input[type=text], select {
     width: 49%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+       textarea {
+    width: 70%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
