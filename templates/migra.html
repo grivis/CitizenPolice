@@ -84,17 +84,17 @@ tr:hover{background-color: #e3f5d5
 <div>
 <form>
     <p>Дата и время посещения подразделения:</p>
-    <input id="start_dt" class='datepicker' size='11' name='Date' title='D-MMM-YYYY' />
-    <input id="start_tm" class='timepicker' size='5' name="Time" title='HH:MM' />
+    <input id="start_dt" class='datepicker' size='11' name='Date' title='D-MMM-YYYY' required/>
+    <input id="start_tm" class='timepicker' size='5' name="Time" title='HH:MM' required/>
     <p></p>
     <p>Состав группы посещения:</p>
-    <input type="text" name="FIO1" size="20" /> Ф. И. О.<br>
-    <input type="text" name="Phone" size="20" /> Телефон<br>
+    <input type="text" name="FIO1" size="20" required/> Ф. И. О.<br>
+    <input type="text" name="Phone" size="20" required /> Телефон<br>
     <input type="text" name="FIO2" size="20" />  Ф. И. О.<br>
     <input type="text" name="FIO3" size="20" />  Ф. И. О.<br>
     <p>Посещенное учреждение:</p>
-    <input type="text" name="OrgAddr" size="20" /> Адрес<br>
-    <input type="text" name="OrgName" size="20" /> Наименование<br>
+    <input type="text" name="OrgAddr" size="20" required /> Адрес<br>
+    <input type="text" name="OrgName" size="20" required /> Наименование<br>
     <p></p>
 <table style="width:80%">
     <tr>
@@ -279,7 +279,7 @@ tr:hover{background-color: #e3f5d5
     <p><textarea name="problems" cols="80" rows="6"></textarea></p>
     <p></p>
     <h3 style="color: darkgreen">Комментарии</h3>
-    <p><textarea name="comments" cols="80" rows="6"></textarea></p>
+    <p><textarea name="comments" cols="80" rows="6" required></textarea></p>
     <p></p>
 <input type="submit" value="Сохранить ответы"></br>
 

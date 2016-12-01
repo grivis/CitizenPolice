@@ -47,8 +47,15 @@ div {
     <p>Общественный контроль за работой органов исполнительной власти</br>
     чрезвычайно важен для формирования современного гражданского общества.</p>
     <p><strong>Мы признательны Вам за проведенную работу!</strong></p>
+    <p id="counter" style="width:50%">10</p>
 </div>
 <script type="text/javascript">
+    if (minutes < 10) {
+        document.getElementById("demo").innerHTML = '<strong>'+
+                day + "/" + month + "/" + year + '  ' + hours + ":" + minutes + '</strong>';
+        minutes = "0" + minutes;
+    }
+
 	var currentDate = new Date(),
       day = currentDate.getDate(),
       month = currentDate.getMonth() + 1,
@@ -58,12 +65,14 @@ div {
       hours = currentTime.getHours(),
       minutes = currentTime.getMinutes();
 
-	if (minutes < 10) {
-	 minutes = "0" + minutes;
-  }
-
-    document.getElementById("demo").innerHTML = '<strong>'+
-            day + "/" + month + "/" + year + '  ' + hours + ":" + minutes + '</strong>';
-</script>
+    setInterval(function() {
+            var div = document.querySelector("#counter");
+            var count = div.textContent * 1 - 1;
+            div.textContent = count;
+            if (count <= 0) {
+                location.href="http://police.mosyabloko.ru";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
